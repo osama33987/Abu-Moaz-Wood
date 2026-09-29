@@ -196,31 +196,42 @@
         <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-extrabold text-sm">تواصل مع المعلم سعيد</span>
     </a>
 
-    <!-- القائمة العلوية -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-workshop-border/30 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-3.5">
-                <div class="p-2.5 rounded-2xl bg-workshop-gold/10 border border-workshop-gold/40 text-workshop-gold shadow-inner">
-                    <i data-lucide="hammer" class="w-6 h-6"></i>
+    <!-- القائمة العلوية ومتجاوبة تماماً للموبايل -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-workshop-border/30 px-3 sm:px-6 py-3 sm:py-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <!-- الشعار -->
+            <div class="flex items-center justify-between w-full sm:w-auto">
+                <div class="flex items-center gap-2.5 sm:gap-3.5">
+                    <div class="p-2 sm:p-2.5 rounded-2xl bg-workshop-gold/10 border border-workshop-gold/40 text-workshop-gold shadow-inner">
+                        <i data-lucide="hammer" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-xs sm:text-lg text-gradient-gold">السعيد أبو السعود (أبو معاذ)</h1>
+                        <p class="text-[10px] sm:text-[11px] text-gray-400 font-light">متخصصون في تفصيل الأثاث والموبيليا</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="font-extrabold text-base md:text-lg text-gradient-gold">السعيد أبو السعود (أبو معاذ)</h1>
-                    <p class="text-[11px] text-gray-400 font-light">متخصصون في تفصيل الأثاث والموبيليا العمولة</p>
-                </div>
+                
+                <!-- زر الإدارة للموبايل يظهر هنا بجانب اللوجو -->
+                <button id="owner-btn-mobile" onclick="toggleOwnerMode()" class="sm:hidden px-3 py-1.5 rounded-lg border border-workshop-border text-[11px] text-workshop-gold bg-workshop-gold/10 flex items-center gap-1 font-bold">
+                    <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                    <span id="owner-btn-text-mobile">الإدارة</span>
+                </button>
             </div>
 
-            <div class="flex items-center gap-3">
-                <div id="owner-action-btns" class="hidden flex gap-2">
-                    <button onclick="openAddModal()" class="px-3.5 py-2.5 rounded-xl btn-gold text-xs flex items-center gap-1.5">
-                        <i data-lucide="plus" class="w-4 h-4"></i>
-                        <span>إضافة تصميم</span>
+            <!-- أزرار الإدارة للأجهزة الكبيرة والتحكم -->
+            <div class="flex flex-wrap items-center justify-center gap-2 w-full sm:w-auto">
+                <div id="owner-action-btns" class="hidden items-center gap-1.5 sm:gap-2">
+                    <button onclick="openAddModal()" class="px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl btn-gold text-[11px] sm:text-xs flex items-center gap-1">
+                        <i data-lucide="plus" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                        <span>تصميم</span>
                     </button>
-                    <button onclick="openVideoModal()" class="px-3.5 py-2.5 rounded-xl bg-workshop-wood text-white text-xs flex items-center gap-1.5 hover:opacity-90 font-bold border border-workshop-gold/30">
-                        <i data-lucide="video" class="w-4 h-4"></i>
-                        <span>إضافة فيديو</span>
+                    <button onclick="openVideoModal()" class="px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl bg-workshop-wood text-white text-[11px] sm:text-xs flex items-center gap-1 hover:opacity-90 font-bold border border-workshop-gold/30">
+                        <i data-lucide="video" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                        <span>فيديو</span>
                     </button>
                 </div>
-                <button id="owner-btn" onclick="toggleOwnerMode()" class="px-4 py-2.5 rounded-xl border border-workshop-border text-xs text-workshop-gold hover:bg-workshop-gold/10 transition-all duration-300 flex items-center gap-2 font-bold">
+                <!-- زر إداره للديسكتوب -->
+                <button id="owner-btn" onclick="toggleOwnerMode()" class="hidden sm:flex px-4 py-2.5 rounded-xl border border-workshop-border text-xs text-workshop-gold hover:bg-workshop-gold/10 transition-all duration-300 items-center gap-2 font-bold">
                     <i data-lucide="shield" class="w-4 h-4"></i>
                     <span id="owner-btn-text">إدارة الورشة</span>
                 </button>
@@ -545,7 +556,7 @@
                     <div class="col-span-full text-center py-16 glass-panel rounded-3xl space-y-3">
                         <i data-lucide="image-off" class="w-12 h-12 text-workshop-gold mx-auto opacity-60"></i>
                         <p class="text-gray-300 font-bold">لا توجد تصاميم مسجلة حالياً في هذا القسم.</p>
-                        <p class="text-xs text-gray-500">اضغط على زر (إدارة الورشة) بالأعلى لإضافة صور أعمالك الخاصة.</p>
+                        <p class="text-xs text-gray-500">اضغط على زر (الإدارة) بالأعلى لإضافة صور أعمالك الخاصة.</p>
                     </div>
                 `;
                 lucide.createIcons();
@@ -563,8 +574,8 @@
                             </span>
                             ${isOwnerMode ? `
                                 <div class="absolute top-3 left-3 flex gap-2 z-25">
-                                    <button onclick="editProduct('${p.id}')" class="p-2 rounded-lg bg-workshop-gold text-workshop-bg"><i data-lucide="edit-2" class="w-3.5 h-3.5"></i></button>
-                                    <button onclick="deleteProduct('${p.id}')" class="p-2 rounded-lg bg-red-600 text-white"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+                                    <button onclick="editProduct('${p.id}')" class="p-2 rounded-lg bg-workshop-gold text-workshop-bg shadow-md"><i data-lucide="edit-2" class="w-3.5 h-3.5"></i></button>
+                                    <button onclick="deleteProduct('${p.id}')" class="p-2 rounded-lg bg-red-600 text-white shadow-md"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
                                 </div>
                             ` : ''}
                         </div>
@@ -610,8 +621,13 @@
         function closePasswordModal() { document.getElementById('password-modal').classList.add('hidden'); }
         
         function updateOwnerUI() {
-            document.getElementById('owner-action-btns').classList.toggle('hidden', !isOwnerMode);
+            const actionBtns = document.getElementById('owner-action-btns');
+            actionBtns.classList.toggle('hidden', !isOwnerMode);
+            actionBtns.classList.toggle('flex', isOwnerMode);
+            
             document.getElementById('owner-btn-text').innerText = isOwnerMode ? 'إغلاق الإدارة' : 'إدارة الورشة';
+            document.getElementById('owner-btn-text-mobile').innerText = isOwnerMode ? 'إغلاق' : 'الإدارة';
+            
             renderProducts();
             renderVideos();
         }
